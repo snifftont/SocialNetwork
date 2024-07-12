@@ -1,0 +1,71 @@
+<%@ Master Language="VB" CodeFile="Master.master.vb" Inherits="Default_master" %>
+<%--<%@ Register Src="VideoPlayer.ascx" TagName="VideoPlayer" TagPrefix="uc1" %>--%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<head runat="server">
+	<title>Local Friends-Find a Local Friend near you!</title>
+</head>
+<body style="text-align: center;" bgcolor ="#33ccff">
+
+    <form id="form1" runat="server"><br /><br/>
+<div class="header">
+            <h1 style="text-align: left">
+                <span style="font-size: 16pt"><span style="font-size: 10pt">
+                    </span>
+                    <table bgcolor="Black" style="left: 0px; vertical-align: top; width: 102%;
+                        position: absolute; top: 0px; height: 25px; border-right: Black thin outset; border-top: Black thin outset; border-left: Black thin outset; border-bottom: Black thin outset;" width="100%">
+                        <tr>
+                            <td colspan="" rowspan="" style="width: 841px; height: 7px; border-top-width: thin; border-left-width: thin; border-left-color: darkblue; border-bottom-width: thin; border-bottom-color: darkblue; border-top-color: darkblue; border-right-width: thin; border-right-color: darkblue;" valign="top" align="left">
+                    <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" BackColor="Black" BorderColor="DarkBlue" BorderStyle="Outset" Font-Size="9pt" ForeColor="White" Height="4px" StaticDisplayLevels="2" Width="99%" DynamicEnableDefaultPopOutImage="False" DynamicHorizontalOffset="2" Font-Names="Verdana" StaticSubMenuIndent="10px" BorderWidth="0px"  >
+                    <DynamicMenuStyle BackColor="Black" BorderColor="Black" BorderStyle="None" />
+                    <DynamicMenuItemStyle BackColor="Black" BorderColor="Black" ForeColor="white"  BorderStyle="None"
+                        BorderWidth="0px" HorizontalPadding="5px" VerticalPadding="2px" />
+                    <StaticMenuItemStyle HorizontalPadding="5px" ForeColor="white" VerticalPadding="2px" />
+                    <DynamicHoverStyle BackColor="Black" ForeColor="White" />
+                    <StaticSelectedStyle BackColor="#cccccc"  ForeColor= "white" />
+                    <DynamicSelectedStyle BackColor="black" ForeColor="white" />
+                    <StaticHoverStyle BackColor="black" ForeColor="White" />
+                </asp:Menu></td>
+                        <td align="right" style="height: 7px" valign="top"> <asp:Label ID="lblMail" runat="server" ForeColor="White" Font-Size="10pt"  Text=""></asp:Label>
+                            </td>
+                            <td align="right" style="width: 60px; height: 7px" valign="top"> <asp:LoginStatus ID="LoginStatus1" runat="server" Font-Size="12pt" LogoutAction="RedirectToLoginPage" BackColor="Transparent" Width="60px" ForeColor="White" />
+                            </td>
+                        </tr>
+                      </table>
+                </span>
+        </h1>
+            
+        <asp:contentplaceholder id="Main" runat="server" >
+        </asp:contentplaceholder>
+&nbsp;&nbsp;
+        </div>
+        <div class="footerbg">
+            <div class="footer" style="text-align: center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-3458350419949524";
+/* 728x90, master */
+google_ad_slot = "2112281212";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br/>
+                &nbsp; ©2008 Local Friends<br />
+                <span style="color: #0000ff"><a href="About.aspx" target="_blank"  >About</a> &nbsp;
+                    <a href="Privacy.aspx" target="_blank" >
+                    Privacy</a>&nbsp; &nbsp;<a href="TermsConditions.aspx" target="_blank" >Terms &amp; Conditions</a>&nbsp;
+                    <a href="Developers.aspx">Developers</a></span></div>
+       <center>
+       <asp:sitemapdatasource id="SiteMapDataSource1" runat="server" startingnodeoffset="0" />
+                <asp:SiteMapPath id="SiteMapPath1" runat="Server" PathSeparator=" > " RenderCurrentNodeAsLink="true" Font-Size="10pt" />       </center>
+                &nbsp&nbsp;       
+ </div>
+      </form>
+   
+</body>
+</html>

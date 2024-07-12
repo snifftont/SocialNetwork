@@ -1,0 +1,72 @@
+<%@ Application Language="VB" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Data.SqlClient" %>
+<%@ Import Namespace="System.Configuration" %>
+<script runat="server">
+
+    Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
+        ' Code that runs on application startup
+        ' Set our user count to 0 when we start the server 
+        Application("ActiveUsers") = 0
+     
+    End Sub
+    
+    Sub Application_End(ByVal sender As Object, ByVal e As EventArgs)
+        ' Code that runs on application shutdown
+    End Sub
+        
+    Sub Application_Error(ByVal sender As Object, ByVal e As EventArgs)
+        ' Code that runs when an unhandled error occurs
+        Response.Redirect("Denied.aspx")
+    End Sub
+
+    Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)
+        If (User.Identity.IsAuthenticated) Then
+            Response.Cookies("UserName")("UserName") = "sandeep"
+            Response.Cookies("UserName").Expires = DateTime.Now.AddDays(1)
+
+            If (MessageExchangers.GAS = True) Then
+                Server.Transfer("denied.aspx")
+            End If
+            Dim sn As String = Session("Email")
+            Dim MySQL As String = "Select ID,USERNAME From Users Where Email='" & sn & "'"
+            Dim MyConn As SqlConnection = New SqlConnection
+            MyConn.ConnectionString = ConfigurationManager.ConnectionStrings("CompanyConnectionString").ConnectionString
+            Dim objDR As SqlDataReader
+            Dim Cmd As New SqlCommand(MySQL, MyConn)
+            MyConn.Open()
+            Try
+                objDR = Cmd.ExecuteReader(CommandBehavior.CloseConnection)
+                While objDR.Read()
+                    Session("ID") = objDR("ID")
+                    'Session("Username") = objDR("Username")
+                End While
+            Catch ex As Exception
+                Throw
+            End Try
+            MyConn.Close()
+        End If
+        
+        
+        
+        Session.Timeout = 30
+        Session("Start") = Now
+        Application.Lock()
+        Application("ActiveUsers") = CInt(Application("ActiveUsers")) + 1
+        Application.UnLock()
+
+    End Sub
+
+    Sub Session_End(ByVal sender As Object, ByVal e As EventArgs)
+        ' Code that runs when a session ends. 
+        ' Note: The Session_End event is raised only when the sessionstate mode
+        ' is set to InProc in the Web.config file. If session mode is set to StateServer 
+        ' or SQLServer, the event is not raised.
+        
+        Application.Lock()
+        Application("ActiveUsers") = CInt(Application("ActiveUsers")) - 1
+        Application.UnLock()
+
+    End Sub
+       
+</script>
