@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="ChatRoom">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>App_Code\Bll\ChatRoom.vb</FileName>
+      <HashCode>AAAAIICCAEAggABEAABAAAQAAAEAAAAAAAAAAgAAAAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Config">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>App_Code\Config.vb</FileName>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAQAAAAAAACABAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChatRoomDB">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>App_Code\Dal\ChatRoomDB.vb</FileName>
+      <HashCode>AAAAAIAAAEAAAABAAAAAAAAAAAEAAAAAAAAAAgAAAAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>
